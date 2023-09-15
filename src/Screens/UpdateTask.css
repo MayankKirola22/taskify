@@ -1,0 +1,80 @@
+#UpdateTask #outerform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#UpdateTask .loginform{
+    display: flexbox;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    width: max-content;
+    padding: 20px;
+    margin-top: 2vh;
+    transition-duration: 0.2s;
+    width: 50%;
+    
+}
+#UpdateTask #footer{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+#UpdateTask #section{
+    padding: 10px 10px;
+}
+#UpdateTask .loginform input{
+    border-radius: 10px;
+}
+#UpdateTask #loginError{
+    display: block;
+    padding: 20;
+}
+#UpdateTask #Desc{
+    border-radius: 10px;
+    border: none;
+    padding: 10px 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+#UpdateTask .button-27 {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 20px;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 150px;
+  will-change: transform;
+}
+
+#UpdateTask .button-27:disabled {
+  pointer-events: none;
+}
+
+#UpdateTask .button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#UpdateTask .button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}

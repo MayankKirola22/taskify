@@ -1,0 +1,56 @@
+#Home .TaskFrame{
+    background-color: #333;
+    margin: 30px 2vw;
+    padding: 30px 50px;
+    color: white;
+    border-radius: 20px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    min-width: 30rem;
+}
+#Home #Title{
+    font-size: 3vw;
+    letter-spacing: 1px;
+}
+#Home #Status{
+    font-size: 2vw;
+    letter-spacing: 1px;
+    color: #999;
+}
+#Home .dueDate{
+    margin: 10px;
+    font-size: 2vw;
+}
+#Home .Cross{
+    float: right;
+    position: relative;
+    right: 4vw;
+    top: 5vh;   
+}
+.TimeStamp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+@media screen and (min-width: 860px) {
+    #Home #Title{
+        font-size: 25px;
+    }
+    #Home #Status{
+        font-size: 20px;
+    }
+    #Home .dueDate{
+        font-size: 20px;
+    }
+    #Home .TaskFrame{
+        margin: 30px 10vw;
+        padding: 30px 50px;
+    }
+    #Home .Cross{
+        right: 10.5vw;
+        top: 1vh;   
+    }
+  }

@@ -1,0 +1,39 @@
+#AddTask #outerform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#AddTask .loginform{
+    display: flexbox;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    width: max-content;
+    padding: 20px;
+    margin-top: 2vh;
+    transition-duration: 0.2s;
+    width: 50%;
+    min-width: 30rem;
+    
+}
+#AddTask #footer{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+#AddTask #section{
+    padding: 10px 10px;
+}
+#AddTask .loginform input{
+    border-radius: 10px;
+}
+#AddTask #loginError{
+    display: block;
+    padding: 20;
+}
+#AddTask #Desc{
+    border-radius: 10px;
+    border: none;
+    padding: 10px 15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}

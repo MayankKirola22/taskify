@@ -1,0 +1,66 @@
+.navbar{
+    background-color: #0000004e !important;
+    padding: 0px;
+    display: flex;
+    width: 100vw;
+    backdrop-filter: blur(100px);
+}
+#logo{
+    margin: 0px 15px;
+}
+#toDo{
+    color: #444;
+}
+#FaUserAlt{
+    margin: auto 10px;
+}
+#main-heading{
+    padding: 0px 20px;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px 10px;
+}
+.navIcon{
+    margin: 0px 10px;
+}
+#options{
+    flex-direction: row;
+    display: flex;
+}
+#profile{
+    padding: 10px;
+    margin-right:30px;
+    cursor: pointer;
+}
+#notifications{
+    padding: 10px;
+    font-size: 10px;
+    color: white;
+    width: 12rem;
+    background-color: #222;
+}
+#notifications #textlog{
+    background-color: #555;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+#notifications #textlog:hover{
+    background-color: black;
+    color: white;
+}
+#logout{
+    text-align: center;
+}
+#logout:hover{
+    background-color: #555;
+    color: white;
+}
+
+#logout:active{
+    box-shadow: 0 3px 3px #66666654;
+transform: translateY(1px);
+}

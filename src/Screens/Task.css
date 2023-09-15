@@ -1,0 +1,88 @@
+#Task .Title{
+    font-size: 30px;
+
+}
+#Task .Status{
+    font-size: 20px;
+    color: #555;
+}
+
+#Task{
+    margin: 30px 80px;
+}
+#Task .commentHead{
+    font-size: 20px;
+    font-weight: bold;
+}
+#Task .commentBody{
+    border: solid #555 2px;
+    padding: 10px;
+    border-radius: 10px;
+}
+#Task .commentInputBody{
+    width:50vw;
+    min-width: 28rem;
+    margin: 0px 10px;
+}
+#Task .commentCross{
+    align-self: end;
+    margin-bottom: -20px;
+    position: relative;
+    right: 3px;
+}
+#Task .comment{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px;
+}
+#Task #hr{
+    color: #555;
+    background-color: #555;
+    height: 2px;
+    border: none;
+}
+#Task .Header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+.commentForm{
+    display: flex;
+    flex-direction: column;
+    
+}
+#Task #body{
+    margin: 50px 20px;
+}
+#Task .subText{
+    font-size: 10px;
+    margin-top: 5px;
+}
+#Task .heading{
+    display: flex;
+    flex-direction: column;
+}
+#Task .TimeStamp{
+    scale: 0.8;
+}
+#Task .dueDate{
+    margin: 10px;
+}
+#Task .addedTime{
+    font-size: 10px;
+    color:#555;
+    margin:10px;
+}
+.commentInput{
+   height: 20vh;
+    border: none;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+@media screen and (max-width: 600px) {
+    #Task{
+        margin: 30px 4vw;
+    }
+  }

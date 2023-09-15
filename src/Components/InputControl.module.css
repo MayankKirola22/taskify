@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 550;
+  letter-spacing:.2mm;
+  font-size: 1.2rem;
+  color: #313131;
+  margin-left: 1rem;
+  
+}
+
+.container input {
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  outline: none;
+  padding: 10px 15px;
+  color: #000;
+}
+
+.container input:hover {
+  border-color: #ccc;
+}
+
+.container input:focus {
+  border-color: #9900ff;
+}

@@ -1,0 +1,44 @@
+#Login #outerform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Login .loginform{
+    display: flexbox;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    width: max-content;
+    padding: 30px;
+    margin-top: 2vh;
+    transition-duration: 0.2s;
+    width: 30%;
+    min-width: 30rem;
+}
+#Login #footer{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+}
+#Login #section{
+    padding: 10px 10px;
+}
+#Login .loginform input{
+    border-radius: 10px;
+}
+#Login #loginError{
+    display: block;
+    padding: 20;
+}
+#Login #forgot{
+  font-size: 12px;
+  padding-left: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+#Login #signUp{
+  text-align: center;
+  padding: 10px 0px;
+  color:#555555
+}
