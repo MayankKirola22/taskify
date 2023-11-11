@@ -3,6 +3,7 @@ import { FaUserAlt,FaPlus,FaBell } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { updateRecord } from "../Utility/db";
 import "./Nav.css";
+
 const Nav = ({user}) => {
   const handleLogout=()=>{
     localStorage.setItem('isLoggedIn','false');
@@ -35,7 +36,7 @@ const Nav = ({user}) => {
                   <FaBell size={20}/>
                 </div>
                 <ul id="notifications" className="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
-                {user!==0&&user.Notifications.length!==0?user.Notifications.map((notif,id)=>(
+                {user!==0 && user.Notifications!==undefined &&user.Notifications.length!==0?user.Notifications.map((notif,id)=>(
                   <li key={id} ><div id="textlog" onClick={()=>notifDelete(id)}>{notif}</div></li>
                 )):<div style={{textAlign:'center'}}>no notifications</div>}   
                 </ul>
@@ -48,10 +49,13 @@ const Nav = ({user}) => {
             <div id="profile" className="profile">
               <div className="dropdown">
               <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                {user.Username}<FaUserAlt id="FaUserAlt" size={20}/>
+                {user.Username}
+                <FaUserAlt id="FaUserAlt" size={20}/>
               </div>
-            <ul id="logout" className="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
-              <li><div id="textlog" onClick={handleLogout}>Logout</div></li>
+              <ul id="logout" className="dropdown-menu" style={{marginTop: "8px", textAlign: "center", width: "50%" }} aria-labelledby="dropdownMenuButton1" >
+              <li>
+                <div id="textlog" style={{ marginBottom: "-2px" }} onClick={handleLogout}>Logout</div>
+              </li>
             </ul>
           </div>
         </div></div>:null}
