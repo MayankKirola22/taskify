@@ -9,11 +9,11 @@
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     width: max-content;
-    padding: 20px;
+    padding: 1vh 3vw;
     margin-top: 2vh;
     transition-duration: 0.2s;
     width: 50%;
-    min-width: 30rem;
+    min-width: fit-content;
     
 }
 #AddTask #footer{

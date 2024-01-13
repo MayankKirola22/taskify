@@ -12,14 +12,14 @@ import { UpdateTask } from './Screens/UpdateTask';
 import ResetPassword from './Screens/ResetPassword';
 
 export default function App() {
-  let [user,setUser]=useState(0);
-  let [tasks,setTasks]=useState(0);
+  let [user,setUser]=useState(null);
+  let [tasks,setTasks]=useState(null);
   useEffect(()=>{
     getByID('Users',localStorage.getItem('isLoggedIn')).then((value)=>{
-      setUser(value)
-    })
+      setUser(value);
+    })  
     getbyUserId(localStorage.getItem('isLoggedIn')).then((value)=>{
-      setTasks(value)
+      setTasks(value);
     })
   },[])
   return (

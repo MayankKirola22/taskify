@@ -17,7 +17,7 @@ export default function Home({tasks,user}){
     }
     return(
         <div className="Screen" id='Home'>
-            {tasks!==0?tasks.map((item)=>(
+            {tasks!==null && tasks.length!==0?tasks.map((item)=>(
                 <div>
                 <FaCircleXmark className="Cross" size={24} color='#aaaaaa' onClick={()=>handleDelete(item.id,item.AssignedBy)}/>
                 <Link className="TaskFrame" key={item.id} to={`/task/${item.id}`}>
@@ -26,7 +26,7 @@ export default function Home({tasks,user}){
                     <div className='TimeStamp'><FaBell size={20} color='#999' /><font className='dueDate'>{item.dueDate}</font></div>
                 </Link>
                 </div>
-            )):<div>No Tasks Found</div>}
+            )):<div id="noTasks">No Tasks Found</div>}
         </div>
     )
 }

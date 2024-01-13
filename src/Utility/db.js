@@ -11,11 +11,16 @@ export const getAll = async (CollectionName) => {
   return items;
 }
 
-export const getByID =async (CollectionName,id) =>{
-    const docRef = doc(db, CollectionName, id);
-    let item=await getDoc(docRef);
-    return {...item.data(),id:item.id};
+export const getByID = async (CollectionName,id) =>{
+    if(id!==null){
+      const docRef = doc(db, CollectionName, id);
+      let item=await getDoc(docRef);
+      return {...item.data(),id:item.id};
+    } else{
+      return null;
+    }
 }
+
 export const getbyUserId=async (userId)=>{
   const docRef = collection(db, 'Tasks');
   
@@ -27,12 +32,17 @@ export const getbyUserId=async (userId)=>{
   })
   return items;
 }
+export const getUserIdbyEmail=async (email)=>{
+  const users=getAll("Users");
+  const RequiredUser=(await users).filter(user=>user.Email===email)
+  return RequiredUser[0].id
+}
 export const addRecordwithID = async (CollectionName,record,id) =>{
   const docRef = doc(db, CollectionName, id);
   await setDoc(docRef,record);
 }
 export const addRecord = async (CollectionName,record) =>{
-  const docRef = addDoc(collection(db, CollectionName), record);
+  addDoc(collection(db, CollectionName), record);
 }
 
 export const deleteRecord = async (CollectionName,id) => {

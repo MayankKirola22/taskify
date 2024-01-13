@@ -18,8 +18,8 @@ export default function Login() {
     signInWithEmailAndPassword(auth, e.target.email.value, e.target.pass.value)
       .then(async (res) => {
         localStorage.setItem('isLoggedIn',res.user.uid)
-        navigate('/');
         window.location.reload(); 
+        navigate('/');
       })
       .catch((err) => {
         setErrorMsg(err.message);

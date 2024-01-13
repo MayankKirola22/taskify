@@ -1,6 +1,6 @@
 #Home .TaskFrame{
     background-color: #333;
-    margin: 30px 2vw;
+    margin: 30px 10vw;
     padding: 30px 50px;
     color: white;
     border-radius: 20px;
@@ -9,33 +9,33 @@
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-    min-width: 30rem;
+    min-width: fit-content;
 }
 #Home #Title{
-    font-size: 3vw;
+    font-size: 30px;
     letter-spacing: 1px;
 }
 #Home #Status{
-    font-size: 2vw;
+    font-size: 20px;
     letter-spacing: 1px;
     color: #999;
 }
 #Home .dueDate{
     margin: 10px;
-    font-size: 2vw;
+    font-size: 20px;
 }
 #Home .Cross{
     float: right;
     position: relative;
-    right: 4vw;
-    top: 5vh;   
+    right: 10.5vw;
+    top: 1vh;   
 }
 .TimeStamp{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-@media screen and (min-width: 860px) {
+@media screen and (max-width: 700px) {
     #Home #Title{
         font-size: 25px;
     }
@@ -50,7 +50,18 @@
         padding: 30px 50px;
     }
     #Home .Cross{
-        right: 10.5vw;
-        top: 1vh;   
+        right: 11.5vw;
+        top: 0.5vh;   
+    }
+  }
+  #Home #noTasks{
+    text-align: center;
+    font-size: 34px;
+  }
+  @media screen and (max-width: 650px) {
+    #Home .TaskFrame{
+        display: flex;
+        flex-direction: column;
+        
     }
   }

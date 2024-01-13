@@ -2,8 +2,8 @@
     background-color: #0000004e !important;
     padding: 0px;
     display: flex;
-    width: 100vw;
     backdrop-filter: blur(100px);
+    flex-direction: row;
 }
 #logo{
     margin: 0px 15px;
@@ -16,27 +16,23 @@
 }
 #main-heading{
     padding: 0px 20px;
-}
-.options{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0px 10px;
-}
-.navIcon{
-    margin: 0px 10px;
-}
-#options{
-    flex-direction: row;
-    display: flex;
+    font-size: 35px;
+    font-weight:500;
 }
 #profile{
     padding: 10px;
     margin-right:30px;
     cursor: pointer;
 }
+#options{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 #notifications{
     padding: 10px;
+    margin: 17px 0px;
     font-size: 10px;
     color: white;
     width: 12rem;
@@ -62,5 +58,20 @@
 
 #logout:active{
     box-shadow: 0 3px 3px #66666654;
-transform: translateY(1px);
+    transform: translateY(1px);
+}
+
+.navIcon{
+    padding: 0px 10px;
+}
+
+@media screen and (max-width: 450px) {
+    .Name{
+        display: none;
+    }
+    #notifications{
+        position:fixed;
+        left:50vw;
+        margin: 2px 0px;
+    }
 }
