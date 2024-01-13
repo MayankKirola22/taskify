@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { updateRecord } from "../Utility/db";
 import "./Nav.css";
 
-const Nav = ({user}) => {
+const Nav = ({user,reload}) => {
   const handleLogout=()=>{
     localStorage.setItem('isLoggedIn','false');
     window.location.reload();
@@ -14,6 +14,7 @@ const Nav = ({user}) => {
         Notifications:user.Notifications.filter((notif,index)=>index!==id)
       }
       updateRecord('Users',user.id,record);
+      reload();
   }
   return (
       <nav className="navbar bg-dark navbar-expand-lg fixed-top">

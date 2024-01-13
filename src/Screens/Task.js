@@ -2,13 +2,13 @@ import { useParams } from "react-router-dom";
 import { getByID, updateRecord } from "../Utility/db";
 import "./Task.css";
 import { Timestamp } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaBell, FaPlus } from "react-icons/fa";
 import { FaCircleXmark } from 'react-icons/fa6';
 import Select from 'react-select';
 import Button from "../Components/Button";
 
-export default function Task({tasks,user}){
+export default function Task({tasks,user,reload}){
     let {id}=useParams();
     let task=tasks!==0?tasks.filter((item)=>id===item.id)[0]:null;
     let [manager,setManager]=useState(null)
@@ -31,6 +31,7 @@ export default function Task({tasks,user}){
             Comments:[...task.Comments,{Body:e.target.comment.value,AddedTime:Timestamp.fromDate(new Date())}]
         }
         updateRecord('Tasks',task.id,record).then(()=>setAddSection(null));
+        reload();
     }
     const statusChange=(value)=>{
         let record={
@@ -45,12 +46,14 @@ export default function Task({tasks,user}){
         })
         }
         updateRecord('Tasks',task.id,record);
+        reload();
     }
     const deleteComment=(id)=>{
         let record={
             Comments:task.Comments.filter(((Comment,index)=>index!==id))
         }
-        updateRecord('Tasks',task.id,record)
+        updateRecord('Tasks',task.id,record);
+        reload();
     }
     return(
         <div id='Task'>

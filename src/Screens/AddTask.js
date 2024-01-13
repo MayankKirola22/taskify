@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './AddTask.css'
 import { addRecord, getByID, getUserIdbyEmail, updateRecord } from '../Utility/db';
 import Button from '../Components/Button';
-export function AddTask({user}){
+export function AddTask({user,reload}){
     const [errorMsg, setErrorMsg] = useState("");
     const formatDate= (date) => {
         let newDate=date.slice(8,10)+'-'+date.slice(5,7)+'-'+date.slice(0,4)
@@ -58,8 +58,10 @@ export function AddTask({user}){
             e.target.Desc.value=''
             e.target.dueDate.value=''
         }
-        ).catch((err)=>setErrorMsg(err))
-    }}
+        ).catch((err)=>setErrorMsg(err))   
+    }
+    reload();
+    }
     return(
         <div id='AddTask'>
             <div className={styles.innerBox} id="outerform">

@@ -14,6 +14,10 @@ import ResetPassword from './Screens/ResetPassword';
 export default function App() {
   let [user,setUser]=useState(null);
   let [tasks,setTasks]=useState(null);
+  let [dummy,setDummy]=useState(true);
+  const reload=()=>{
+    setDummy(!dummy);
+  }
   useEffect(()=>{
     getByID('Users',localStorage.getItem('isLoggedIn')).then((value)=>{
       setUser(value);
@@ -21,17 +25,18 @@ export default function App() {
     getbyUserId(localStorage.getItem('isLoggedIn')).then((value)=>{
       setTasks(value);
     })
-  },[])
+  },[dummy])
+  
   return (
     <div className="App">
       <div>
-      <Nav user={user}/>
+      <Nav user={user} reload={reload} />
       {localStorage.getItem('isLoggedIn')!=='false' && localStorage.getItem('isLoggedIn')!==null?
         <Routes>
-          <Route path="/" element={<Home user={user} tasks={tasks}/>}/>
-          <Route path='/AddTask' element={<AddTask user={user} />}/>
+          <Route path="/" element={<Home user={user} tasks={tasks} reload={reload}/>}/>
+          <Route path='/AddTask' element={<AddTask reload={reload} user={user} />}/>
           <Route path='/UpdateTask/:id' element={<UpdateTask tasks={tasks}/>} />
-          <Route path='/task/:id' element={<Task user={user} tasks={tasks}/>}/>
+          <Route path='/task/:id' element={<Task reload={reload} user={user} tasks={tasks}/>}/>
           <Route path='/*' element={<Navigate to='/'/>}/>
         </Routes>:
         <Routes>

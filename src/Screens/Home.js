@@ -4,7 +4,7 @@ import { FaCircleXmark } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { deleteRecord, getByID, updateRecord } from '../Utility/db';
 
-export default function Home({tasks,user}){
+export default function Home({tasks,user,reload}){
     const handleDelete=(id,AssignedBy)=>{
         if(AssignedBy!==''){
         getByID('Users',AssignedBy).then((manager)=>{
@@ -14,6 +14,7 @@ export default function Home({tasks,user}){
             updateRecord("Users",AssignedBy,record)
         })}
         deleteRecord("Tasks",id);
+        reload();
     }
     return(
         <div className="Screen" id='Home'>
