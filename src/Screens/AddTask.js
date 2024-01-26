@@ -1,64 +1,69 @@
 import styles from '../Components/InputControl.module.css';
 import { useState } from 'react';
-import './AddTask.css'
+import './AddTask.css';
 import { addRecord, getByID, getUserIdbyEmail, updateRecord } from '../Utility/db';
 import Button from '../Components/Button';
+
 export function AddTask({user,reload}){
     const [errorMsg, setErrorMsg] = useState("");
     const formatDate= (date) => {
         let newDate=date.slice(8,10)+'-'+date.slice(5,7)+'-'+date.slice(0,4)
         return newDate
     }
-    
     const handleSubmit = (e) => {
-        e.preventDefault();
-        let record=[];
-        if(e.target.AssignMail.value!==""){
-            record={
-                AssignedBy:user.id,
-                Comments:[],
-                Description:e.target.Desc.value,
-                Status:'Incomplete',
-                Title:e.target.title.value,
-                dueDate:formatDate(e.target.dueDate.value)
+        try{
+            e.preventDefault();
+            let record=[];
+            if(e.target.AssignMail.value!==""){
+                record={
+                    AssignedBy:user.id,
+                    Comments:[],
+                    Description:e.target.Desc.value,
+                    Status:'Incomplete',
+                    Title:e.target.title.value,
+                    dueDate:formatDate(e.target.dueDate.value)
+                }
+            }
+            else{
+                record={
+                    AssignedBy:'',
+                    Comments:[],
+                    Description:e.target.Desc.value,
+                    Status:'Incomplete',
+                    Title:e.target.title.value,
+                    User:user.id,
+                    dueDate:formatDate(e.target.dueDate.value)
             }
         }
-        else{
-            record={
-                AssignedBy:'',
-                Comments:[],
-                Description:e.target.Desc.value,
-                Status:'Incomplete',
-                Title:e.target.title.value,
-                User:user.id,
-                dueDate:formatDate(e.target.dueDate.value)
+        if(e.target.AssignMail.value!==''){
+            getByID('Users',localStorage.getItem('isLoggedIn')).then((manager)=>{
+                let notrec={
+                    Notifications:[...manager.Notifications,`${user.Username} has assigned a task to you.`]
+                }
+                getUserIdbyEmail(e.target.AssignMail.value).then(id=>{
+                    updateRecord("Users",id,notrec).then(()=>{
+                        addRecord('Tasks',{...record,User:id}).then(()=>{
+                            e.target.AssignMail.value=''
+                            e.target.title.value=''
+                            e.target.Desc.value=''
+                            e.target.dueDate.value=''
+                        }
+                        ).catch((err)=>setErrorMsg(err))
+                    })
+                }).catch(()=>setErrorMsg("User Not Found. Enter Correct Email ID."))
+                
+            }).catch((err)=>setErrorMsg(err))
+        }else{
+            addRecord('Tasks',record).then(()=>{
+                e.target.title.value=''
+                e.target.Desc.value=''
+                e.target.dueDate.value=''
+            }
+            ).catch((err)=>setErrorMsg(err))   
         }
     }
-    if(e.target.AssignMail.value!==''){
-        getByID('Users',localStorage.getItem('isLoggedIn')).then((manager)=>{
-            let notrec={
-                Notifications:[...manager.Notifications,`${user.Username} has assigned a task to you.`]
-            }
-            getUserIdbyEmail(e.target.AssignMail.value).then(id=>{
-                updateRecord("Users",id,notrec).then(()=>{
-                    addRecord('Tasks',{...record,User:id}).then(()=>{
-                        e.target.AssignMail.value=''
-                        e.target.title.value=''
-                        e.target.Desc.value=''
-                        e.target.dueDate.value=''
-                    }
-                    ).catch((err)=>setErrorMsg(err))
-                })
-            })
-            
-        })
-    }else{
-        addRecord('Tasks',record).then(()=>{
-            e.target.title.value=''
-            e.target.Desc.value=''
-            e.target.dueDate.value=''
-        }
-        ).catch((err)=>setErrorMsg(err))   
+    catch{
+        setErrorMsg('An Error occured.')
     }
     reload();
     }
@@ -77,7 +82,7 @@ export function AddTask({user,reload}){
             </div>
             <div className={styles.container} id='section'>
                 <label>Assign to</label>
-                <input type="text" id='AssignMail' placeholder="Assignee's mail or leave empty" />
+                <input type="email" id='AssignMail' placeholder="Assignee's mail or leave empty" />
             </div>
             <div className={styles.container} id='section'>
                 <label>Description</label>
